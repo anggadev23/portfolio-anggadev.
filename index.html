@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>MyPortfolio | AnggaDev.</title>
+  <meta name="description" content="Portfolio AnggaDev, Frontend Engineer, Web Developer dan UI Designer profesional. Lihat proyek, skill, dan kontak langsung.">
+  <meta name="keywords" content="Web Developer, UI/UX Designer, Portfolio, Projects, Frontend Engineer">
+  <meta name="author" content="AnggaDev.">
+  <meta property="og:title" content="Portfolio AnggaDev">
+  <meta property="og:description" content="Portfolio AnggaDev, Frontend Engineer, Web Developer & UI Designer.">
+  <meta property="og:image" content="asset-img/bobby-anggara.webp">
+  <meta property="og:url" content="https://github.com/bobbyanggaradev">
+  <meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="logo-loader">
+      <span>A</span><span>n</span><span>g</span><span>g</span><span>a</span>
+      <span>D</span><span>e</span><span>v.</span>
+    </div>
+    <div class="loader-bar">
+      <div class="progress"></div>
+    </div>
+    <button id="skip-loader">Selamat Datang !</button>
+     <div id="skip-text">>> Klik di mana saja untuk lewati</div>
+  </div>
+<div id="imgPreview" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+">
+  <img id="imgPreviewSrc" style="max-width:90%;max-height:90%;border-radius:16px">
+</div>
+<div id="main-content" style="display:none;">
+<header>
+  <nav class="pop-up">
+<div class="logo">AnggaDev.</div>
+<ul class="menu" id="menu">
+  <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+  <li><a href="#project">Project</a></li>
+  <li><a href="#skill">Skill</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+<div style="display:flex;gap:16px;align-items:center">
+  <div class="theme-switch">
+  <input type="checkbox" id="theme-toggle">
+  <label for="theme-toggle" class="switch"></label>
+</div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</div>
+</nav>
+</header>
+<section id="home">
+  <div class="container hero">
+    <div class="hero-content pop-up">
+      <div class="avatar-chaos pop-up">
+        <img src="asset-img/bobby-anggara1.webp" alt="Foto Developer" class="hero-photo">
+      </div>
+      <h1 class="chaos-name pop-up">
+        Halo, Saya<br>
+        <span>B</span><span>o</span><span>b</span><span>b</span><span>y</span>
+        <span>A</span><span>n</span><span>g</span><span>g</span><span>a</span><span>r</span><span>a</span>
+      </h1>
+      <p id="typing" class="pop-up"></p>
+      <div class="hero-buttons pop-up">
+  <a href="#project" class="cta">Lihat Project </a>
+  <a href="#contact" class="cta-glow">Hubungi Saya</a>
+</div>
+<div class="social">
+  <a href="https://instagram.com/anggaraaa.b" target="_blank" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" class="icon">
+      <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 
+      2.243 5 5 5h10c2.757 0 5-2.243 
+      5-5V7c0-2.757-2.243-5-5-5H7zm10 
+      2a3 3 0 013 3v10a3 3 0 01-3 
+      3H7a3 3 0 01-3-3V7a3 3 0 
+      013-3h10zm-5 3a5 5 0 
+      100 10 5 5 0 000-10zm0 
+      2a3 3 0 110 6 3 3 0 
+      010-6zm4.5-.5a1 
+      1 0 100 2 1 1 0 
+      000-2z"/>
+    </svg>
+  </a>
+  <a href="https://x.com/frambooozen" target="_blank" aria-label="Twitter">
+    <svg viewBox="0 0 24 24" class="icon">
+      <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.34.3 0 001.88-2.37 8.59 8.59 
+      0 01-2.72 1.04 4.28 4.28 
+      0 00-7.3 3.9A12.14 12.14 
+      0 013 4.9a4.28 4.28 0 
+      001.32 5.71 4.2 4.2 
+      0 01-1.94-.54v.05a4.28 
+      4.28 0 003.43 4.19 4.3 
+      4.3 0 01-1.93.07 4.28 
+      4.28 0 004 2.97A8.6 
+      8.6 0 012 19.54a12.14 
+      12.14 0 006.56 1.92c7.88 
+      0 12.2-6.53 12.2-12.2 
+      0-.19 0-.39-.01-.58A8.7 
+      8.7 0 0022.46 6z"/>
+    </svg>
+  </a>
+  <a href="https://www.linkedin.com/in/bobby-anggara-815a3b364/" target="_blank" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" class="icon">
+      <path d="M4.98 3.5a2.5 2.5 0 110 
+      5 2.5 2.5 0 010-5zM3 
+      9h4v12H3zM9 9h3.8v1.6h.05a4.2 
+      4.2 0 013.78-2.1c4.04 0 
+      4.79 2.66 4.79 6.12V21h-4v-5.4c0-1.29 
+      0-2.95-1.8-2.95s-2.08 1.4-2.08 
+      2.85V21H9z"/>
+    </svg>
+  </a>
+   <a href="https://github.com/bobbyanggaradev" target="_blank" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" class="icon">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.385-1.333-1.754-1.333-1.754-1.09-.745.083-.73.083-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.805 1.305 3.49.997.108-.776.418-1.305.762-1.605-2.665-.3-5.467-1.334-5.467-5.933 0-1.31.467-2.38 1.235-3.22-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.48 11.48 0 013.003-.404c1.018.005 2.043.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.655 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.628-5.48 5.923.43.37.823 1.096.823 2.21v3.276c0 .32.218.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.373-12-12-12z"/>
+  </svg>
+</a>
+</div>
+  </div>
+</section>
+<section id="about">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="section-title">Tentang</h2>
+      <div class="glass about-text" style="max-width:720px;margin:auto">
+        <div class="about-image">
+          <div class="about-wrapper">
+    <div class="lanyard fade-up">
+      <div class="lanyard-strap fade-up"></div>
+      <div class="lanyard-card fade-up">
+        <img src="asset-img/bobby-anggara.webp" alt="Bobby Anggara">
+        <h4>Bobby Anggara</h4>
+        <span>Web Developer</span>
+      </div>
+    </div>
+    <div class="about-content fade-up">
+        <h2>Siapa Saya?</h2>
+        <p>Saya <b>Bobby Anggara</b>, Frontend Developer yang fokus pada UI modern, glassmorphism, dan pengalaman pengguna yang nyaman.</p>
+        <p>Saya senang membangun website yang responsif, rapi, dan punya animasi halus tanpa mengorbankan performa.</p>
+      </div>
+    </div>
+    <div class="about-stats fade-up">
+      <div class="stats glass">
+        <div class="stat">
+          <h3 data-count="120">0+</h3>
+          <p>Proyek Selesai</p>
+        </div>
+      </div>
+      <div class="stats glass">
+        <div class="stat">
+          <h3 data-count="50">0+</h3>
+          <p>Klien Puas</p>
+        </div>
+      </div>
+      <div class="stats glass">
+        <div class="stat">
+          <h3 data-percent="100">0%</h3>
+          <p>Profesionalisme</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="project">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="section-title">Proyek AnggaDev.</h2>
+    <div class="projects">
+      <div class="glass project">
+        <img src="asset-img/gazpacho.webp" alt="Gazpacho Travel">
+        <h3>GAZPACHO - Travel</h3>
+        <p class="project-desc">
+          Website travel informatif untuk menampilkan destinasi, paket perjalanan, dan pengalaman wisata.
+        </p>
+        <a href="https://gazpachodummy.pages.dev/" target="_blank" class="btn-project">
+          Lihat Demo ➔
+        </a>
+      </div>
+      <div class="glass project">
+        <img src="asset-img/renaissance.webp" alt="Renaissance Dessert">
+        <h3>RENAISSANCE - Dessert</h3>
+        <p class="project-desc">
+          Website bisnis dessert dengan desain elegan untuk menampilkan menu
+          dan brand produk.
+        </p>
+        <a href="https://renaissancedummy.pages.dev/" target="_blank" class="btn-project">
+          Lihat Demo ➔
+        </a>
+      </div>
+      <div class="glass project">
+        <img src="asset-img/origins.webp" alt="Origins Comic">
+        <h3>ORIGINS - Comic</h3>
+        <p class="project-desc">
+          Website komik digital dengan tampilan modern untuk membaca dan
+          mengeksplorasi cerita secara online.
+        </p>
+        <a href="https://originsdummy.pages.dev/" target="_blank" class="btn-project">
+          Lihat Demo ➔
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skill">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="section-title">Keahlian Saya</h2>
+<div class="skills">
+<div class="glass skill" data-skill="90">
+  <div class="skill-head">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+    HTML5
+  </div>
+  <div class="bar"><span></span></div>
+</div>
+<div class="glass skill" data-skill="90">
+  <div class="skill-head">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+    CSS3
+  </div>
+  <div class="bar"><span></span></div>
+</div>
+<div class="glass skill" data-skill="85">
+  <div class="skill-head">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+    JavaScript
+  </div>
+  <div class="bar"><span></span></div>
+</div>
+<div class="glass skill" data-skill="75">
+  <div class="skill-head">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+    React
+  </div>
+  <div class="bar"><span></span></div>
+</div>
+<div class="glass skill" data-skill="80">
+  <div class="skill-head">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">
+    UI / UX Design
+  </div>
+  <div class="bar"><span></span></div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="section-title">Kirim Email</h2>
+    <div class="glass">
+<form id="contactForm">
+  <input placeholder="Nama" name="from_name" required>
+<input type="email" name="from_email" placeholder="Email Anda" required>
+  <textarea placeholder="Pesan" name="message" required></textarea>
+  <button type="submit">Kirim</button>
+  <div id="formMessage" style="margin-top:10px;font-weight:600;"></div>
+</form>
+  </div>
+<div class="contact-horizontal pop-up">
+  <a href="https://wa.me/6285385548442?text=halo%20anggadev" aria-label="Telepon">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 11.36 11.36 0 003.55.57 1 1 0 011 1v3.25a1 1 0 01-.91 1 19 19 0 01-17-17 1 1 0 011-1h3.25a1 1 0 011 1c.05 1.27.21 2.53.57 3.55a1 1 0 01-.24 1.05l-2.2 2.19z"/>
+    </svg>
+    <span>WhatsApp: +62 853-8554-8442</span>
+  </a>
+  <a href="https://maps.app.goo.gl/9tWMEsZKF7j4ihfN8" target="_blank" aria-label="Lokasi">
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+    </svg>
+    <span>Lokasi: Sidoarjo, Indonesia</span>
+  </a>
+</div>
+    </div>
+</section>
+<footer>
+  <div class="footer-kominfo">
+    <span>Didukung Oleh:</span>
+    <img src="https://common.bizhare.id/img/logo/logo-kominfo.webp?format=webp/quality=70/width=258" alt="Logo Kominfo">
+  </div>
+  © 2026 AnggaDev., Inc.</footer>
+   <script src="loader.js"></script>
+  <script src="script.js"></script>
+<div class="robot-mini">
+  <div class="robot-wrapper">
+    <div class="robot-body">
+      <div class="robot-antenna"></div>
+      <div class="robot-eyes">
+        <div class="robot-eye">
+          <div class="robot-pupil"></div>
+        </div>
+        <div class="robot-eye">
+          <div class="robot-pupil"></div>
+        </div>
+      </div>
+      <div class="robot-mouth"></div>
+      <div class="robot-cheek left"></div>
+      <div class="robot-cheek right"></div>
+    </div>
+    <div class="robot-shadow"></div>
+  </div>
+</div>
+</body>
+</html>
