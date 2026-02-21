@@ -329,4 +329,23 @@ function randomBlink() {
   });
   setTimeout(randomBlink, Math.random() * 5000 + 3000);
 }
+
 randomBlink();
+const seeMoreBtn = document.getElementById("seeMoreBtn");
+const hiddenProjects = document.querySelectorAll(".hidden-project");
+
+let expanded = false;
+
+seeMoreBtn.addEventListener("click", () => {
+  expanded = !expanded;
+
+  hiddenProjects.forEach(project => {
+    if (expanded) {
+      project.classList.add("show");
+    } else {
+      project.classList.remove("show");
+    }
+  });
+
+  seeMoreBtn.textContent = expanded ? "See Less" : "See More";
+});
