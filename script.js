@@ -332,22 +332,17 @@ function randomBlink() {
 
 randomBlink();
 document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("seeMoreBtn");
+  if (!btn) return;
 
-  const seeMoreBtn = document.getElementById("seeMoreBtn");
-  const hiddenProjects = document.querySelectorAll(".hidden-project");
+  btn.addEventListener("click", function () {
+    const hidden = document.querySelectorAll(".hidden-project");
+    const isOpen = btn.classList.toggle("open");
 
-  if (!seeMoreBtn) return; // biar tidak error
-
-  let expanded = false;
-
-  seeMoreBtn.addEventListener("click", () => {
-    expanded = !expanded;
-
-    hiddenProjects.forEach(project => {
-      project.classList.toggle("show");
+    hidden.forEach(el => {
+      el.style.display = isOpen ? "block" : "none";
     });
 
-    seeMoreBtn.textContent = expanded ? "See Less" : "See More";
+    btn.textContent = isOpen ? "See Less" : "See More";
   });
-
 });
