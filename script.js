@@ -331,21 +331,23 @@ function randomBlink() {
 }
 
 randomBlink();
-const seeMoreBtn = document.getElementById("seeMoreBtn");
-const hiddenProjects = document.querySelectorAll(".hidden-project");
+document.addEventListener("DOMContentLoaded", function () {
 
-let expanded = false;
+  const seeMoreBtn = document.getElementById("seeMoreBtn");
+  const hiddenProjects = document.querySelectorAll(".hidden-project");
 
-seeMoreBtn.addEventListener("click", () => {
-  expanded = !expanded;
+  if (!seeMoreBtn) return; // biar tidak error
 
-  hiddenProjects.forEach(project => {
-    if (expanded) {
-      project.classList.add("show");
-    } else {
-      project.classList.remove("show");
-    }
+  let expanded = false;
+
+  seeMoreBtn.addEventListener("click", () => {
+    expanded = !expanded;
+
+    hiddenProjects.forEach(project => {
+      project.classList.toggle("show");
+    });
+
+    seeMoreBtn.textContent = expanded ? "See Less" : "See More";
   });
 
-  seeMoreBtn.textContent = expanded ? "See Less" : "See More";
 });
